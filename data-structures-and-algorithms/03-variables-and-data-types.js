@@ -166,20 +166,20 @@ console.log(numbers); // [ 1, 2, 3, 4 ]
 // C++ pair<string, string> Optimus = {"Autobot", "Truck"};
 // cout << Optimus.first << endl;
 // cout << Optimus.second << endl;
-let Optimus = {
-	faction: "Autobot",
-	vehicle: "Truck",
+const optimus = {
+  faction: "Autobot",
+  vehicle: "Truck",
 };
 
-console.log(Optimus);
+console.log(optimus);
 
 // C++:
 // Optimus.first = "prime";
 // Optimus.second = "Red Truck";
-Optimus.faction = "prime";
-Optimus["vehicle"] = "Red Truck";
+optimus.faction = "prime";
+optimus["vehicle"] = "Red Truck";
 
-console.log(Optimus);
+console.log(optimus);
 
 // Object properties are named, so this is easier to understand than
 // pair.first and pair.second. Use dot notation or bracket notation.
@@ -202,10 +202,10 @@ console.log(Optimus);
 let points = [];
 let pointCount = 3;
 while (pointCount > 0) {
-	let x = pointCount;
-	let y = pointCount * 2;
-	points.push({ first: x, second: y });
-	pointCount--;
+  const x = pointCount;
+  const y = pointCount * 2;
+  points.push({ first: x, second: y });
+  pointCount--;
 }
 
 console.log(points[0].first);  // 3
@@ -230,8 +230,8 @@ for (const point of points) {
 let pairs = [];
 let pairCount = 2;
 while (pairCount > 0) {
-	pairs.push([pairCount, pairCount * 2]);
-	pairCount--;
+  pairs.push([pairCount, pairCount * 2]);
+  pairCount--;
 }
 console.log(pairs[0][0]); // 2, equivalent to pairs[0].first
 console.log(pairs[0][1]); // 4, equivalent to pairs[0].second
