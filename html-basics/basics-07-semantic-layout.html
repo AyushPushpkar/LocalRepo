@@ -1,0 +1,108 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page built only from div tags.
+  Objectives:
+    1. Change div id="top" into the page header, and div id="menu"
+       into a nav with aria-label="Main navigation".
+    2. Change div id="content" into main.
+    3. Change div id="post" into an article. Its div id="post-top"
+       becomes a header, and span id="date" becomes a time tag with
+       datetime="2026-10-04".
+    4. Change div id="tips" into a section.
+    5. Change div id="related" into an aside.
+    6. Change div id="bottom" into the footer.
+  Constraints:
+    - Do not change any existing id, class or text.
+    - Do not remove the <link> or <script> lines in the head.
+    - Change opening AND closing tags together.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 7: Semantic Layout</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 1 (change the tags of the two divs below):            ║
+         ║ <header id="top"> ... </header>                                  ║
+         ║ <nav id="menu" aria-label="Main navigation"> ... </nav>          ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 1: header = intro area (title + navigation). nav = a group of
+         links to move around the site. aria-label gives the nav a name for
+         screen readers. The id stays, only the tag name changes. -->
+    <div id="top">
+      <h1>Fruit Blog</h1>
+      <div id="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 2 (change the tags of div id="content"):              ║
+         ║ <main id="content"> ... </main>                                  ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 2: main = the central content of the page. Use it ONCE per page.
+         It holds the article and the aside, but not the header or footer. -->
+    <div id="content">
+
+      <!-- ╔════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 3 (change the tags below):                          ║
+           ║ <article id="post"> ... </article>                             ║
+           ║ <header id="post-top"> ... </header>                           ║
+           ║ <time id="date" datetime="2026-10-04">October 4, 2026</time>   ║
+           ╚════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 3: article = a complete piece that makes sense on its own. A
+           header can sit inside an article too. time keeps the visible text
+           for people; datetime="YYYY-MM-DD" is the date for machines. The
+           time tag replaces the span and keeps its id. -->
+      <div id="post">
+        <div id="post-top">
+          <h2>Why mangoes are great</h2>
+          <p>Published <span id="date">October 4, 2026</span></p>
+        </div>
+        <p>Mangoes are sweet and rich in vitamin C.</p>
+
+        <!-- ╔══════════════════════════════════════════════════════════════╗
+             ║ ✔ SOLUTION 4 (change the tags below):                        ║
+             ║ <section id="tips"> ... </section>                           ║
+             ╚══════════════════════════════════════════════════════════════╝ -->
+        <!-- WHY 4: section = a themed part of a bigger piece. It has its own
+             heading (h3 here). If it has no heading, use div instead. -->
+        <div id="tips">
+          <h3>Buying tips</h3>
+          <p>Pick fruit that smells sweet near the stem.</p>
+        </div>
+      </div>
+
+      <!-- ╔════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 5 (change the tags below):                          ║
+           ║ <aside id="related"> ... </aside>                              ║
+           ╚════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 5: aside = related but secondary content. It sits NEXT to the
+           article inside main, not inside it. Choose it by meaning, not
+           because it looks like a sidebar. -->
+      <div id="related">
+        <h2>Related links</h2>
+        <p>Read about bananas next.</p>
+      </div>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 6 (change the tags below):                            ║
+         ║ <footer id="bottom"> ... </footer>                               ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 6: footer = closing info for the page (copyright, contact). The
+         page footer goes after main, not inside it. A footer can also close
+         an article or section, but that is not what this task asks. -->
+    <div id="bottom">
+      <p>© 2026 Fruit Blog</p>
+    </div>
+
+  </body>
+</html>

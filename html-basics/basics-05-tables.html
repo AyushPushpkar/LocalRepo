@@ -1,0 +1,116 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page.
+  Objectives:
+    1. Add the caption "Fruit prices" to the table with id="prices".
+    2. Add a row for Mango with price 90 below Banana.
+    3. Add a row below Mango with ONE cell "Prices are in rupees" that
+       stretches across both columns.
+    4. Add a footer row with the label "Total" and the value 170.
+    5. In the table with id="schedule", merge the two "Monday" cells into
+       one cell that spans two rows.
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 5: Tables</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Tables</h1>
+    <p>Use tables for tabular data, not for positioning page sections.</p>
+
+    <!-- table = whole table, tr = row, th = heading cell, td = data cell -->
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 1 (add as the first line inside the table):                 ║
+         ║     <caption>Fruit prices</caption>                                    ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 1: caption = the table's title. It must be the FIRST thing inside the
+         table, before thead and tbody. -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 2 (add inside the tbody, below the Banana row):             ║
+         ║     <tr>                                                               ║
+         ║       <td>Mango</td>                                                   ║
+         ║       <td>90</td>                                                      ║
+         ║     </tr>                                                              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 2: One new row = one tr with one td per column (two columns, so two td).
+         It goes inside the tbody so it stays with the other data rows. -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 3 (add inside the tbody, below the Mango row):              ║
+         ║     <tr>                                                               ║
+         ║       <td colspan="2">Prices are in rupees</td>                        ║
+         ║     </tr>                                                              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 3: colspan = this cell stretches across that many COLUMNS. The table has
+         two columns, so the row needs just one td with colspan="2", not two td. -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 4 (add inside the table, after the closing </tbody>):       ║
+         ║     <tfoot>                                                            ║
+         ║       <tr>                                                             ║
+         ║         <th scope="row">Total</th>                                     ║
+         ║         <td>170</td>                                                   ║
+         ║       </tr>                                                            ║
+         ║     </tfoot>                                                           ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 4: tfoot holds the summary row. Placed after the tbody here, and the browser
+         always shows it at the bottom. The label is a th with scope="row" because it
+         names the row. 50 + 30 + 90 = 170. -->
+    <table id="prices">
+      <thead>
+        <tr>
+          <th scope="col">Fruit</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Apple</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>Banana</td>
+          <td>30</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 5 (replaces the two Monday rows below):                     ║
+         ║     <tr>                                                               ║
+         ║       <td rowspan="2">Monday</td>                                      ║
+         ║       <td>HTML</td>                                                    ║
+         ║     </tr>                                                              ║
+         ║     <tr>                                                               ║
+         ║       <td>CSS</td>                                                     ║
+         ║     </tr>                                                              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 5: rowspan = this cell stretches DOWN across that many ROWS. The second
+         row then has only one td, because the space for the first cell is already
+         taken by the merged Monday cell above it. -->
+    <table id="schedule">
+      <tr>
+        <th>Day</th>
+        <th>Subject</th>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>HTML</td>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td>CSS</td>
+      </tr>
+    </table>
+
+  </body>
+</html>

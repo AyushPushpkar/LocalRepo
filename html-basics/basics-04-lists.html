@@ -1,0 +1,95 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page.
+  Objectives:
+    1. Change the bulleted list with id="steps" into a numbered list.
+    2. Add a third item "JavaScript" to the list with id="skills".
+    3. Put a nested list (HTML, CSS) inside the "Frontend" item.
+    4. Add the term "CSS" with the description "Styles the look of a web page."
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 4: Lists</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Lists and Descriptions</h1>
+
+    <h2>Unordered and ordered lists</h2>
+    <!-- ul = unordered (bullets). ol = ordered (numbers). li = one item in either -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 1 (replaces the three lines below):                         ║
+         ║     <ol id="steps">                                                    ║
+         ║       <li>Open the page</li>                                           ║
+         ║       <li>Edit the code</li>                                           ║
+         ║     </ol>                                                              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 1: Only the list tag changes (ul to ol), and BOTH the opening and closing
+         tag must change. The li lines and the id stay exactly the same. -->
+    <ul id="steps">
+      <li>Open the page</li>
+      <li>Edit the code</li>
+    </ul>
+
+    <!-- ★ A list with an id is how JS finds it later, to add or change items -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 2 (add inside the list, below the CSS item):                ║
+         ║     <li>JavaScript</li>                                                ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 2: Every item is an li, and it must sit INSIDE the ul, before the closing
+         tag. Items show in the order they are written, so the last li shows last. -->
+    <ul id="skills">
+      <li>HTML</li>
+      <li>CSS</li>
+    </ul>
+
+    <h2>Ordered list</h2>
+    <!-- start = first number. reversed = counts down instead of up (here: 3, then 2...) -->
+    <ol start="3" reversed>
+      <li>Ordered items have a sequence.</li>
+      <!-- value = forces this item's number. Later items continue from it -->
+      <li value="10">The value attribute can set an item number.</li>
+    </ol>
+
+    <h2>Nested list</h2>
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 3 (replaces the Frontend line below):                       ║
+         ║     <li>Frontend                                                       ║
+         ║       <ul>                                                             ║
+         ║         <li>HTML</li>                                                  ║
+         ║         <li>CSS</li>                                                   ║
+         ║       </ul>                                                            ║
+         ║     </li>                                                              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 3: The inner ul goes INSIDE the Frontend li, after its text, not between
+         two li's. The Frontend li closes only after the inner list ends. -->
+    <ul id="course">
+      <li>Frontend</li>
+    </ul>
+
+    <h2>Description list</h2>
+    <!-- dl = description list (term + meaning pairs, like a glossary) -->
+    <!-- dt = the term. dd = its description -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 4 (add inside the dl, below the HTML pair):                 ║
+         ║     <dt>CSS</dt>                                                       ║
+         ║     <dd>Styles the look of a web page.</dd>                            ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 4: A new pair is always dt first, then dd. Both sit directly inside the
+         dl, and the term is separate from its description. -->
+    <dl id="glossary">
+      <dt>HTML</dt>
+      <dd>Structures the meaning and content of a web page.</dd>
+    </dl>
+  </body>
+</html>

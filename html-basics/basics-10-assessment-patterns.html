@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+  Lesson 9: assessment patterns.
+  These are the short instructions commonly used in HTML code-completion tasks.
+  Read the request, identify the tag or attribute it names, and insert it in
+  the correct opening tag or content position.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 9: Assessment Patterns</title>
+  </head>
+  <body>
+    <h1>Assessment Tag and Attribute Patterns</h1>
+    <p>Translate the wording of a question into the matching HTML syntax.</p>
+
+    <h2>“Add a link”</h2>
+    <p>
+      Use <code>a</code> with <code>href</code>:
+      <code>&lt;a href="about.html"&gt;About&lt;/a&gt;</code>
+    </p>
+
+    <h2>“Add an image”</h2>
+    <p>
+      Use <code>img</code> with <code>src</code> and descriptive <code>alt</code>:
+      <code>&lt;img src="photo.jpg" alt="A mountain"&gt;</code>
+    </p>
+
+    <h2>“Make the field compulsory”</h2>
+    <p>
+      Add the boolean <code>required</code> attribute:
+      <code>&lt;input type="text" required&gt;</code>
+    </p>
+
+    <h2>“Give the field a name”</h2>
+    <p>
+      Add <code>name</code>; submitted form data uses this key:
+      <code>&lt;input name="email"&gt;</code>
+    </p>
+
+    <h2>“Connect the label to the input”</h2>
+    <p>
+      The label's <code>for</code> must exactly match the input's <code>id</code>:
+    </p>
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="tel" />
+
+    <h2>“Create choices”</h2>
+    <p>
+      Use <code>select</code> and <code>option</code> for a dropdown.
+      Radio buttons share a <code>name</code>; checkboxes can have independent names.
+    </p>
+    <select name="level">
+      <option value="beginner">Beginner</option>
+      <option value="advanced">Advanced</option>
+    </select>
+    <label><input type="radio" name="mode" value="online" /> Online</label>
+    <label><input type="radio" name="mode" value="onsite" /> On-site</label>
+
+    <h2>“Merge table cells”</h2>
+    <p>
+      Use <code>colspan</code> to merge columns and <code>rowspan</code> to merge rows.
+    </p>
+    <table>
+      <caption>Cell spanning example</caption>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Result</th>
+      </tr>
+      <tr>
+        <td colspan="2">This cell spans two columns.</td>
+      </tr>
+    </table>
+
+    <h2>“Link to a section on this page”</h2>
+    <p><a href="#contact">Jump to contact</a></p>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>The link works because its <code>href="#contact"</code> matches this section's <code>id</code>.</p>
+    </section>
+
+    <h2>Final check before submitting</h2>
+    <ul>
+      <li>Check that the requested tag is correctly opened and closed when required.</li>
+      <li>Check that every attribute is inside the opening tag.</li>
+      <li>Quote attribute values such as <code>href="page.html"</code>.</li>
+      <li>Check exact matching values, especially <code>label for</code> and input <code>id</code>.</li>
+      <li>Do not use a button for navigation or a link for an action.</li>
+    </ul>
+
+    <p><a href="index.html">Return to the lesson list</a></p>
+  </body>
+</html>

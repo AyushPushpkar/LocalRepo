@@ -1,0 +1,91 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page.
+  Objectives:
+    1. Change the first <div> into an <h2> (keep its id and class).
+    2. Add a second button below the first, with id="resetButton".
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+-->
+
+<!-- Always first line: says "this is modern HTML5" -->
+<!DOCTYPE html>
+
+<!-- Root element. Everything lives inside it. lang="en" = page language -->
+<html lang="en">
+  <head>
+    <!-- HEAD = info about the page. Nothing here appears on screen -->
+    <meta charset="UTF-8" />
+    <!-- ^ lets the page show any language/emoji correctly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ^ makes the page fit phone screens -->
+    <title>HTML Basics 1: Document Structure</title>
+    <!-- ^ text shown on the browser tab -->
+
+    <!-- ★ link = connects a CSS file. href = path to the file -->
+    <link rel="stylesheet" href="index.css" />
+
+    <!-- ★ script = connects a JS file. In the head it loads BEFORE the body exists,
+         so code can't find elements while the file loads. It must run later (e.g. inside a function) -->
+    <script src="index.js"></script>
+  </head>
+
+  <!-- BODY = everything visible on the page -->
+  <body>
+    <!-- header, main = "boxes" with meaning: top intro area, main content -->
+    <header>
+      <!-- h1 = biggest heading (h1 to h6, use one h1 per page). p = paragraph -->
+      <h1>Document Structure</h1>
+      <p>Every normal HTML page has a doctype, html, head, and body.</p>
+    </header>
+
+    <main>
+      <!-- ★ div = generic box: no meaning, no look. Used to group and style things -->
+      <!-- ★ id = unique name, one element only. JS finds elements by id -->
+      <!-- ★ class = shared name, many elements allowed. CSS styles by class -->
+
+      <!-- ╔════════════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 1 (replaces the line below):                                ║
+           ║     <h2 id="firstDiv" class="red"></h2>                                ║
+           ╚════════════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 1: Change both the opening and the closing tag (div to h2). Changing
+           only one breaks the page. Keep id and class exactly as they are, because
+           the constraint forbids changing them. -->
+      <div id="firstDiv" class="red"></div>
+      <div id="secondDiv" class="green"></div>
+
+      <!-- ★ p with an id = a "message box": JS finds it by id and changes its text -->
+      <p id="message">Message appears here</p>
+
+      <!-- ★ button = clickable. onclick = runs the named JS function on click -->
+      <button id="toggleButton" onclick="toggleClass()">Toggle Classes</button>
+
+      <!-- ╔════════════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 2 (add right below this box):                               ║
+           ║     <br />                                                             ║
+           ║     <button id="resetButton" onclick="resetClasses()">Reset</button>   ║
+           ╚════════════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 2: br = line break. A button sits beside the previous one by default,
+           so br pushes the new one onto the next line ("below"). onclick calls the JS
+           function by that exact name, so index.js must define resetClasses(). Until
+           it does, clicking shows an error in the Console (expected for now). The
+           id="resetButton" is the one the task requires. -->
+
+      <h2>Important rules</h2>
+
+      <!-- ul = bullet list, li = one bullet. (ol = numbered list) -->
+      <ul>
+        <!-- &lt; and &gt; display the symbols < and >. code = monospace text -->
+        <li>Use one <code>&lt;html&gt;</code> root element.</li>
+        <li>Put page information in <code>&lt;head&gt;</code>.</li>
+        <li>Put visible page content in <code>&lt;body&gt;</code>.</li>
+        <li>Use lowercase element names and quote attribute values.</li>
+        <li>Indent nested elements so the structure is easy to read.</li>
+      </ul>
+
+      <!-- title="..." is an attribute (name="value"): shows a tooltip on hover -->
+      <p title="A tooltip appears in supporting browsers">Hover over this text.</p>
+    </main>
+  </body>
+</html>

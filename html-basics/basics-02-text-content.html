@@ -1,0 +1,85 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page.
+  Objectives:
+    1. Change the <div> with id="subTitle" into an <h3> (keep its id and class).
+    2. In the notice, make "Warning" carry important meaning and "save" stressed.
+    3. Break the address into three lines: street, city, country.
+    4. Write the water formula so the 2 sits below the line.
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 2: Text Content</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Text and Content</h1>
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 1 (replaces the line below):                                ║
+         ║     <h3 id="subTitle" class="muted">A short subtitle</h3>              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 1: Same swap as Lesson 1: change BOTH tags, keep id and class. h3 is the
+         right level because it sits under the h1 (don't skip levels). -->
+    <div id="subTitle" class="muted">A short subtitle</div>
+
+    <!-- ★ span = generic INLINE box (div is a block on its own line). It wraps part of
+         a line so CSS or JS can target just that piece by its id or class -->
+    <p>Status: <span id="status" class="note">Ready</span></p>
+
+    <!-- ╔═════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 2 (replaces the line below):                                 ║
+         ║     <p id="notice"><strong>Warning</strong>: <em>save</em> your work</p>║
+         ╚═════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 2: strong = important (shown bold), em = stressed word (shown italic). Each
+         wraps only its own word and closes before the p closes (tags nest properly). Use
+         strong/em when the task talks about meaning. b and i only change the look. -->
+    <p id="notice">Warning: save your work</p>
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 3 (replaces the line below):                                ║
+         ║     <p id="address">Street 1,<br />City,<br />Country</p>              ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 3: br goes inside the text, exactly where the line must end. It has no
+         content and no closing tag. Spaces after the commas are no longer needed. -->
+    <p id="address">Street 1, City, Country</p>
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 4 (replaces the line below):                                ║
+         ║     <p id="formula">H<sub>2</sub>O</p>                                 ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 4: sub = small text below the line. Wrap only the digit, not the whole
+         formula. sup is the opposite (above the line), as in x squared. -->
+    <p id="formula">H2O</p>
+
+    <!-- Headings communicate hierarchy. Do not choose a heading by its size. -->
+    <!-- Don't skip levels (h2 then h4) -->
+    <h2>Headings and paragraphs</h2>
+    <h3>A subsection</h3>
+    <p>A paragraph groups a related idea. Browsers automatically add structure around it.</p>
+
+    <!-- br = line break. Only for text that truly breaks, like an address -->
+    <p>Use <br /> only for a meaningful line break, such as a postal address.</p>
+
+    <h2>Meaningful inline elements</h2>
+
+    <!-- strong = important (bold). b = bold for style only -->
+    <p><strong>Strong importance</strong> is not the same as <b>stylistic bold text</b>.</p>
+
+    <!-- em = stressed word (italic). i = italic for style: foreign word, thought -->
+    <p><em>Emphasis</em> is not the same as <i>alternate voice or mood</i>.</p>
+
+    <!-- mark = highlight, small = fine print, del = strikethrough -->
+    <p><mark>Highlighted text</mark>, <small>side notes</small>, and <del>deleted text</del>.</p>
+
+    <!-- ins = underline, sub = below the line, sup = above the line -->
+    <p><ins>Inserted text</ins>, H<sub>2</sub>O, and x<sup>2</sup>.</p>
+  </body>
+</html>

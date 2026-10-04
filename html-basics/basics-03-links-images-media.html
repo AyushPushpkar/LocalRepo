@@ -1,0 +1,94 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page.
+  Objectives:
+    1. Make the word "Docs" a link to https://example.com that opens in a new tab.
+    2. Add an image below the Docs link: src="images/photo.jpg",
+       alt="A city street", width 200.
+    3. Add a link below the image that jumps to the section with id="contact".
+    4. Make the logo image clickable, linking to index.html.
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 3: Links and Images</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Links and Images</h1>
+
+    <h2>Links</h2>
+    <!-- a = link. href = destination. Text between the tags is what gets clicked -->
+    <!-- ★ target="_blank" = open in a NEW tab. Without it the link opens in the same tab -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 1 (replaces the line below):                                ║
+         ║     <p><a href="https://example.com" target="_blank">Docs</a></p>      ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 1: a = anchor (link). href holds the destination and target="_blank" opens
+         a new tab; both go inside the opening tag. The closing </a> wraps only the
+         word that should be clickable. -->
+    <p>Docs</p>
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 2 (add right below this box):                               ║
+         ║     <img src="images/photo.jpg" alt="A city street" width="200" />     ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 2: img has no closing tag. src = file path (a wrong path gives a broken
+         image). alt = text shown if the image fails and read by screen readers, so
+         always include it. width is in pixels; the height adjusts automatically so
+         the picture is not stretched. -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 3 (add right below this box):                               ║
+         ║     <p><a href="#contact">Go to contact</a></p>                        ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 3: # + id = jump to the element on THIS page that has that id. The id must
+         be spelled exactly like the target's (capital letters count). No file name
+         before the #, so the browser stays on the same page. -->
+
+    <!-- Relative link: a file in your own project -->
+    <p><a href="index.html">Relative link to this course</a></p>
+
+    <!-- Absolute link: full address starting with https:// -->
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Absolute external link</a></p>
+
+    <!-- mailto: opens the email app. tel: starts a call on phones -->
+    <p><a href="mailto:student@example.com">Email link</a> and <a href="tel:+10000000000">phone link</a>.</p>
+
+    <!-- # + id = jump to the element with that id on this page. -->
+    <p><a href="#media">Jump to the image reminder</a></p>
+
+    <h2>Images</h2>
+    <!-- img = image (no closing tag). src = file path. width = size in pixels -->
+    <!-- alt = text shown if the image fails and read by screen readers. Describe the image, or alt="" if purely decorative -->
+    <!-- %20 = a space in the file name. Safer to avoid spaces in file names -->
+    <img src="images/Spider-Man%20photography.jpeg" alt="Spider-Man photography" width="240" />
+
+    <!-- ★ a can wrap an img: the picture itself becomes the clickable thing -->
+
+    <!-- ╔════════════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 4 (replaces the line below):                                ║
+         ║     <a href="index.html">                                              ║
+         ║       <img src="images/logo.png" alt="Logo" width="100" />             ║
+         ║     </a>                                                               ║
+         ╚════════════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 4: The img stays exactly as it was and sits inside the a. The a opens first
+         and closes last, so it wraps the image like a frame. -->
+    <img src="images/logo.png" alt="Logo" width="100" />
+
+    <!-- id = a unique name for one element. Used as the jump target for #media -->
+    <h2 id="media">Image reminder</h2>
+    <p>For basic assessments, focus on <code>src</code>, <code>alt</code>,
+      <code>width</code>, and linking an image with the <code>a</code> element.</p>
+
+    <h2 id="contact">Contact</h2>
+    <p>Write to us here.</p>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page with metadata and accessibility gaps.
+  Objectives:
+    1. Add the page language (English) to the html tag.
+    2. Add the charset (UTF-8) and viewport meta tags.
+    3. Add the title "Fruit Shop" and a description meta tag
+       "A fruit shop page."
+    4. Give the mango image the alt text "Ripe mango on a plate".
+    5. The divider image is only decoration. Make screen readers
+       skip it.
+    6. Fix the heading order: the h3 skips a level.
+    7. Add the class "highlight" to the paragraph with id="note"
+       (keep the id).
+    8. Connect the "Email" label to the input with id="email".
+    9. Change the clickable div with id="buy" into a real button
+       (keep its id and onclick).
+   10. Change the link text "Click here" so it says where the link
+       goes: "View the fruit menu".
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+    - Do not rename the function in onclick.
+-->
+<!DOCTYPE html>
+<!-- ╔══════════════════════════════════════════════════════════════════╗
+     ║ ✔ SOLUTION 1 (replaces the html tag below):                      ║
+     ║ <html lang="en">                                                 ║
+     ╚══════════════════════════════════════════════════════════════════╝ -->
+<!-- WHY 1: lang tells browsers and screen readers the page language (for
+     pronunciation and translation). It is an attribute on the html tag. -->
+<html>
+  <head>
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 2 (add inside the head, first lines):                 ║
+         ║ <meta charset="UTF-8" />                                         ║
+         ║ <meta name="viewport"                                            ║
+         ║   content="width=device-width, initial-scale=1.0" />             ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 2: charset lets the page show any language or symbol correctly.
+         viewport makes the page fit phone screens. Both go inside head, and
+         charset should come first. -->
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 3 (add inside the head, below the meta tags):         ║
+         ║ <title>Fruit Shop</title>                                        ║
+         ║ <meta name="description" content="A fruit shop page." />         ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 3: title is the browser tab text (and matters for search).
+         description is the summary shown in search previews. It uses
+         name="description" and its text goes in content. -->
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Fruit Shop</h1>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 4 (replaces the img line below):                      ║
+         ║ <img src="mango.jpg" alt="Ripe mango on a plate" />              ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 4: alt is the text read aloud when the image cannot be seen
+         (and shown if it fails to load). Informative images need a useful
+         description. -->
+    <img src="mango.jpg" />
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 5 (replaces the img line below):                      ║
+         ║ <img src="divider.png" alt="" />                                 ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 5: Decorative images get an EMPTY alt so screen readers skip
+         them. Missing alt is different: readers may announce the file name. -->
+    <img src="divider.png" />
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 6 (replaces the h3 tags below):                       ║
+         ║ <h2>Today's offer</h2>                                           ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 6: Headings go in order: h1, then h2, then h3. Skipping from h1
+         to h3 confuses screen-reader users. Change BOTH opening and closing
+         tags. -->
+    <h3>Today's offer</h3>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 7 (replaces the p line below):                        ║
+         ║ <p id="note" class="highlight">Fresh mangoes arrive today.</p>   ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 7: id is unique (one element), class can be shared by many. An
+         element can have both: keep the id and add class as another
+         attribute. Several classes go in one value, separated by spaces. -->
+    <p id="note">Fresh mangoes arrive today.</p>
+
+    <form>
+      <p>
+        <!-- ╔══════════════════════════════════════════════════════════════════╗
+             ║ ✔ SOLUTION 8 (replaces the label line below):                    ║
+             ║ <label for="email">Email</label>                                 ║
+             ╚══════════════════════════════════════════════════════════════════╝ -->
+        <!-- WHY 8: for must match the input id EXACTLY. Then clicking the
+             label focuses the input and screen readers read the label with
+             it. -->
+        <label>Email</label>
+        <input id="email" name="email" type="email" />
+      </p>
+    </form>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 9 (replaces the div below):                           ║
+         ║ <button type="button" id="buy" onclick="buy()">Buy now</button>  ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 9: A div cannot be reached with the keyboard and is not
+         announced as a button. button works with Tab, Enter and Space for
+         free. Keep id and onclick. type="button" stops it submitting a form
+         (it only matters inside one). Here the id and the function share
+         the name buy: if index.js does not define buy(), the console says
+         "buy is not a function", because the id makes the browser treat buy
+         as the button itself. -->
+    <div id="buy" onclick="buy()">Buy now</div>
+
+    <!-- ╔══════════════════════════════════════════════════════════════════╗
+         ║ ✔ SOLUTION 10 (replaces the link below):                         ║
+         ║ <a href="menu.html">View the fruit menu</a>                      ║
+         ╚══════════════════════════════════════════════════════════════════╝ -->
+    <!-- WHY 10: Screen readers can list all links on a page. "Click here"
+         means nothing out of context, so the text should describe the
+         destination. -->
+    <a href="menu.html">Click here</a>
+
+  </body>
+</html>

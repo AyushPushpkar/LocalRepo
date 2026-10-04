@@ -1,0 +1,141 @@
+<!--
+  PRACTICE TASK (same format as the real test)
+  Given: a finished page.
+  Objectives:
+    1. Connect the "Username" label to the input with id="username".
+    2. Add a password input below it: id="userPassword", name="password",
+       placeholder "Enter password", and required.
+    3. The two radio buttons let you pick both at once. Fix them so only one
+       can be chosen.
+    4. Add a button below the radio buttons with id="checkBtn" and text
+       "Check" that calls checkPassword() when clicked, without submitting
+       the form.
+  Constraints:
+    - Do not change any existing id or class.
+    - Do not remove the <link> or <script> lines in the head.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basics 6: Forms</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Forms and Controls</h1>
+
+    <!-- form = groups the controls. label = text for a control. input = the control itself -->
+    <form id="loginForm">
+      <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 1 (replaces the label line below):                            ║
+           ║     <label for="username">Username</label>                               ║
+           ╚══════════════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 1: for="username" must match the input's id EXACTLY (capital letters
+           count). Once they match, clicking the label puts the cursor in the input
+           and screen readers connect the two. -->
+      <p>
+        <label>Username</label>
+        <input id="username" name="username" type="text" />
+      </p>
+
+      <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 2 (add right below the Username paragraph):                   ║
+           ║     <p>                                                                  ║
+           ║       <label for="userPassword">Password</label>                         ║
+           ║       <input id="userPassword" name="password" type="password"           ║
+           ║         placeholder="Enter password" required />                         ║
+           ║     </p>                                                                 ║
+           ╚══════════════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 2: type="password" hides the typed characters. id is for the label and
+           for JS; name is the field's name when the form is sent. placeholder = grey
+           hint text that disappears when typing. required = the form will not submit
+           while the field is empty. input has no closing tag. -->
+
+      <!-- radio = pick ONE from a group. Radios share a group only when their name is the same -->
+      <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 3 (replaces the two radio lines below):                       ║
+           ║     <input type="radio" name="level" value="beginner" /> Beginner        ║
+           ║     <input type="radio" name="level" value="advanced" /> Advanced        ║
+           ╚══════════════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 3: Only the name changes, and it must be the SAME on both (here "level").
+           value is what gets sent for the chosen option, so each radio keeps its own
+           value. -->
+      <p>
+        <input type="radio" name="level1" value="beginner" /> Beginner
+        <input type="radio" name="level2" value="advanced" /> Advanced
+      </p>
+
+      <!-- ╔══════════════════════════════════════════════════════════════════════════╗
+           ║ ✔ SOLUTION 4 (add right below the radio buttons):                        ║
+           ║     <button type="button" id="checkBtn" onclick="checkPassword()">       ║
+           ║       Check                                                              ║
+           ║     </button>                                                            ║
+           ╚══════════════════════════════════════════════════════════════════════════╝ -->
+      <!-- WHY 4: A button inside a form is a submit button by default, and submitting
+           reloads the page. type="button" turns that off, so only your JS runs. onclick
+           must use the exact function name from the task, and index.js must define
+           it. Until it does, clicking shows an error in the Console (expected for now).
+           Outside a form (like the mock test's button) this is not an issue. -->
+
+      <!-- ★ p with an id = the message box a check function writes its result into -->
+      <p id="result"></p>
+    </form>
+
+    <h2>Other common form controls</h2>
+    <!-- action is the destination, and method="post" sends the form data in the request body. -->
+    <form action="/submit" method="post">
+      <p>
+        <!-- type="email" enables basic browser email validation. -->
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" />
+      </p>
+
+      <p>
+        <!-- minlength prevents submission when fewer than 8 characters are entered. -->
+        <label for="newPassword">Password</label>
+        <input id="newPassword" name="password" type="password" minlength="8" />
+      </p>
+
+      <p>
+        <!-- select creates a dropdown; each option should have a value. -->
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option value="">Choose one</option>
+          <option value="html">HTML</option>
+          <option value="forms">Forms</option>
+        </select>
+      </p>
+
+      <p>
+        <!-- textarea is used for multi-line text. -->
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" cols="30"></textarea>
+      </p>
+
+      <p>
+        <!-- A checkbox is an independent yes/no choice. -->
+        <label>
+          <input type="checkbox" name="updates" value="yes" />
+          Send updates
+        </label>
+      </p>
+
+      <p>
+        <!-- type="date" displays a date picker. -->
+        <label for="date">Date</label>
+        <input id="date" name="date" type="date" />
+      </p>
+
+      <p>
+        <!-- type="file" opens a file chooser; accept limits the offered file type. -->
+        <label for="file">Upload PDF</label>
+        <input id="file" name="file" type="file" accept=".pdf" />
+      </p>
+
+      <!-- name is needed when a control's value must be submitted. -->
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
